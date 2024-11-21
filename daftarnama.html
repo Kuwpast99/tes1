@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daftar Pasien</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .search-container {
+            margin-bottom: 20px;
+        }
+        .search-input {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .letter-section {
+            margin: 20px 0;
+            display: none; /* Sembunyikan semua section secara default */
+        }
+        .letter {
+            font-size: 24px;
+            color: #007bff;
+            margin-bottom: 10px;
+        }
+        .name-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        .name-list li {
+            padding: 5px 0;
+            border-bottom: 1px solid #ccc;
+        }
+        .name-list li:last-child {
+            border-bottom: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Daftar Pasien</h1>
+
+        <div class="search-container">
+            <input type="text" id="searchInput" class="search-input" placeholder="Ketik huruf untuk mencari nama pasien...">
+        </div>
+
+        <div id="patientList">
+            <div class="letter-section" data-letter="A">
+                <div class="letter">A</div>
+                <ul class="name-list">
+                    <li>Aldo</li>
+                    <li>Aisha</li>
+                    <li>Anisa</li>
+                    <li>Asep</li>
+                    <li>Aulia</li>
+                </ul>
+            </div>
+
+            <div class="letter-section" data-letter="B">
+                <div class="letter">B</div>
+                <ul class="name-list">
+                    <li>Budi</li>
+                    <li>Bella</li>
+                    <li>Bambang</li>
+                    <li>Bunga</li>
+                    <li>Beni</li>
+                </ul>
+            </div>
+
+            <div class="letter-section" data-letter="C">
+                <div class="letter">C</div>
+                <ul class="name-list">
+                    <li>Cindy</li>
+                    <li>Cahya</li>
+                    <li>Citra</li>
+                    <li>Cahyo</li>
+                    <li>Candra</li>
+                </ul>
+            </div>
+
+            <div class="letter-section" data-letter="D">
+                <div class="letter">D</div>
+                <ul class="name-list">
+                    <li>Diana</li>
+                    <li>Doni</li>
+                    <li>Dewi</li>
+                    <li>Dimas</li>
+                    <li>Dani</li>
+                </ul>
+            </div>
+
+            <div class="letter-section" data-letter="E">
+                <div class="letter">E</div>
+                <ul class="name-list">
+                    <li>Eka</li>
+                    <li>Elisa</li>
+                    <li>Erik</li>
+                    <li>Endang</li>
+                    <li>Eva</li>
+                </ul>
+            </div>
+
+            <div class="letter-section" data-letter="F">
+                <div class="letter">F</div>
+                <ul class="name-list">
+                    <li>Fajar</li>
+                    <li>Fina</li>
+                    <li>Farhan</li>
+                    <li>Fiona</li>
+                    <li>Faisal</li>
+                </ul>
+            </div>
+            <div class="letter-section" data-letter="G">
+                <div class="letter">G</div>
+                <ul class="name-list">
+                    <li>Gina</li>
+                    <li>Guntur</li>
+                    <li>Galih</li>
+                    <li>Gita</li>
+                    <li>Gilang</li>
+                </ul>
+            </div>
+
+            <div class="letter-section" data-letter="H">
+                <div class="letter">H</div>
+                <ul class="name-list">
+                    <li>Hendra</li>
+                    <li>Hani</li>
+                    <li>Hilda</li>
+                    <li>Husni</li>
+                    <li>Haniyah</li>
+                </ul>
+            </div>
+
+            <div class="letter-section" data-letter="I">
+                <div class="letter">I</div>
+                <ul class="name-list">
+                    <li>Ika</li>
+                    <li>Iwan</li>
+                    <li>Ira</li>
+                    <li>Indra</li>
+                    <li>Irfan</li>
+                </ul>
+            </div>
+
+            <div class="letter-section" data-letter="J">
+                <div class="letter">J</div>
+                <ul class="name-list">
+                    <li>Joko</li>
+                    <li>Jasmine</li>
+                    <li>Juli</li>
+                    <li>Joni</li>
+                    <li>Jasmine</li>
+                </ul>
+            </div>
+
+            <div class="letter-section" data-letter="K">
+                <div class="letter">K</div>
+                <ul class="name-list">
+                    <li>Krisna</li>
+                    <li>Kiki</li>
+                    <li>Kamal</li>
+                    <li>Kirana</li>
+                    <li>Khalid</li>
+                </ul>
+            </div>
+
+            <div class="letter-section" data-letter="L">
+                <div class="letter">L</div>
+                <ul class="name-list">
+                    <li>Lina</li>
+                    <li>Lukman</li>
+                    <li>Lia</li>
+                    <li>Lestari</li>
+                    <li>Luthfi</li>
+                </ul>
+            </div>
+
+            <div class="letter-section" data-letter="M">
+                <div class="letter">M</div>
+                <ul class="name-list">
+                    <li>Mira</li>
+                    <li>Muhammad</li>
+                    <li>Melati</li>
+                    <li>Maulana</li>
+                    <li>Marina</li>
+                </ul>
+            </div>
+
+            <div class="letter-section" data-letter="N">
+                <div class="letter">N</div>
+                <ul class="name-list">
+                    <li>Nina</li>
+                    <li>Niko</li>
+                    <li>Nadia</li>
+                    <li>Nanda</li>
+                    <li>Nurul</li>
+                </ul>
+            </div>
+
+            <div class="letter-section" data-letter="O">
+                <div class="letter">O</div>
+                <ul class="name-list">
+                    <li>Oka</li>
+                    <li>Omar</li>
+                    <li>Olivia</li>
+                    <li>Oni</li>
+                    <li>Oki</li>
+                </ul>
+            </div>
+
+            <div class="letter-section" data-letter="P">
+                <div class="letter">P</div>
+                <ul class="name-list">
+                    <li>Putu</li>
+                    <li>Penny</li>
+                    <li>Pandu</li>
+                    <li>Pia</li>
+                    <li>Pasha</li>
+                </ul>
+            </div>
+
+            <div class="letter-section" data-letter="Q">
+                <div class="letter">Q</div>
+                <ul class="name-list">
+                    <li>Qori</li>
+                    <li>Qais</li>
+                    <li>Qila</li>
+                    <li>Qamar</li>
+                    <li>Qudrat</li>
+                </ul>
+            </div>
+
+            <div class="letter-section" data-letter="R">
+                <div class="letter">R</div>
+                <ul class="name-list">
+                    <li>Rina</li>
+                    <li>Rudi</li>
+                    <li>Rizky</li>
+                    <li>Rani
+                        <li>Rani</li>
+                        <li>Rizal</li>
+                    </ul>
+                </div>
+    
+                <div class="letter-section" data-letter="S">
+                    <div class="letter">S</div>
+                    <ul class="name-list">
+                        <li>Siti</li>
+                        <li>Sandi</li>
+                        <li>Sari</li>
+                        <li>Surya</li>
+                        <li>Suhana</li>
+                    </ul>
+                </div>
+    
+                <div class="letter-section" data-letter="T">
+                    <div class="letter">T</div>
+                    <ul class="name-list">
+                        <li>Tina</li>
+                        <li>Toni</li>
+                        <li>Tari</li>
+                        <li>Taufik</li>
+                        <li>Tri</li>
+                    </ul>
+                </div>
+    
+                <div class="letter-section" data-letter="U">
+                    <div class="letter">U</div>
+                    <ul class="name-list">
+                        <li>Umar</li>
+                        <li>Uli</li>
+                        <li>Ulya</li>
+                        <li>Udin</li>
+                        <li>Umi</li>
+                    </ul>
+                </div>
+    
+                <div class="letter-section" data-letter="V">
+                    <div class="letter">V</div>
+                    <ul class="name-list">
+                        <li>Vina</li>
+                        <li>Vicky</li>
+                        <li>Vera</li>
+                        <li>Vina</li>
+                        <li>Vito</li>
+                    </ul>
+                </div>
+    
+                <div class="letter-section" data-letter="W">
+                    <div class="letter">W</div>
+                    <ul class="name-list">
+                        <li>Wati</li>
+                        <li>Wira</li>
+                        <li>Wahyu</li>
+                        <li>Winda</li>
+                        <li>Wahyu</li>
+                    </ul>
+                </div>
+    
+                <div class="letter-section" data-letter="X">
+                    <div class="letter">X</div>
+                    <ul class="name-list">
+                        <li>Xena</li>
+                        <li>Xander</li>
+                        <li>Xia</li>
+                        <li>Xavi</li>
+                        <li>Xenaida</li>
+                    </ul>
+                </div>
+    
+                <div class="letter-section" data-letter="Y">
+                    <div class="letter">Y</div>
+                    <ul class="name-list">
+                        <li>Yani</li>
+                        <li>Yusuf</li>
+                        <li>Yuli</li>
+                        <li>Yosef</li>
+                        <li>Yuna</li>
+                    </ul>
+                </div>
+    
+                <div class="letter-section" data-letter="Z">
+                    <div class="letter">Z</div>
+                    <ul class="name-list">
+                        <li>Zara</li>
+                        <li>Zain</li>
+                        <li>Zulfi</li>
+                        <li>Zahra</li>
+                        <li>Zaki</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    
+        <script>
+            const searchInput = document.getElementById('searchInput');
+            const letterSections = document.querySelectorAll('.letter-section');
+    
+            searchInput.addEventListener('input', function() {
+                const searchValue = this.value.toUpperCase();
+                letterSections.forEach(section => {
+                    const letter = section.getAttribute('data-letter');
+                    if (letter.startsWith(searchValue)) {
+                        section.style.display = 'block'; // Tampilkan section jika huruf cocok
+                    } else {
+                        section.style.display = 'none'; // Sembunyikan section jika tidak cocok
+                    }
+                });
+            });
+        </script>
+    </body>
+    <body>
+        <div class="container">
+            <form> 
+                <button><a href="Fingerprint.html" type="button" id="scanButton">Scan Fingerprint</a></button>
+                <input type="hidden" id="fingerprint" name="fingerprint">
+    
+                <button><a href="daftar.html" class="submit">Daftar</a></button>
+            </form>
+        </div>
+    
+        <script>
+            
+            document.getElementById('registrationForm').addEventListener('submit', function(event) {
+                event.preventDefault();
+                // Di sini Anda dapat menambahkan logika untuk mengirim data ke server
+                alert("Pendaftaran berhasil!");
+                // Reset form setelah pendaftaran
+                this.reset();
+            });
+        </script>
+    
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                background-color: #f4f4f4;
+                margin: 0;
+                padding: 20px;
+            }
+            .container {
+                max-width: 400px;
+                margin: auto;
+                background: white;
+                padding: 20px;
+                border-radius: 5px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            }
+            h1 {
+                text-align: center;
+            }
+            label {
+                display: block;
+                margin: 10px 0 5px;
+            }
+            input, select, button {
+                width: 100%;
+                padding: 10px;
+                margin: 5px 0 15px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+            }
+            button {
+            background-color: #0071e3;
+                background-color: ;
+                color: white;
+                border: none;
+                cursor: pointer;
+            }
+            button:hover {
+            background-color: #0071e3;
+                background-color: ;
+            }
+        </style>
+    </body>
+</html>

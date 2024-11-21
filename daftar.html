@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pendaftaran Pasien</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            color: #555;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .confirmation-section {
+            display: none;
+            margin-top: 20px;
+        }
+        .confirmation-text {
+            margin: 10px 0;
+        }
+        .back-button {
+            background-color: #dc3545;
+        }
+        .back-button:hover {
+            background-color: #c82333;
+        }
+        .action-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        .action-buttons button {
+            width: 48%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Pendaftaran Pasien</h1>
+        <form id="registrationForm">
+            <label for="name">Nama Lengkap:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="dob">Tanggal Lahir:</label>
+            <input type="date" id="dob" name="dob" required>
+
+            <label for="gender">Jenis Kelamin:</label>
+            <select id="gender" name="gender" required>
+                <option value="Laki-laki">Laki-laki</option>
+                <option value="Perempuan">Perempuan</option>
+            </select>
+
+            <label for="address">Alamat:</label>
+            <textarea id="address" name="address" rows="3" required></textarea>
+
+            <label for="phone">Nomor Telepon:</label>
+            <input type="tel" id="phone" name="phone" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <div class="action-buttons">
+                <button type="button" id="resetButton">Reset</button>
+                <button type="submit">Daftar</button>
+            </div>
+        </form>
+
+        <div class="confirmation-section" id="confirmationSection">
+            <h2>Data Diri Pasien</h2>
+            <p class="confirmation-text">Nama: <span id="confirmName"></span></p>
+            <p class="confirmation-text">Tanggal Lahir: <span id="confirmDob"></span></p>
+            <p class="confirmation-text">Jenis Kelamin: <span id="confirmGender"></span></p>
+            <p class="confirmation-text">Alamat: <span id="confirmAddress"></span></p>
+            <p class="confirmation-text">Nomor Telepon: <span id="confirmPhone"></span></p>
+            <p class="confirmation-text">Email: <span id="confirmEmail"></span></            <div class="action-buttons">
+                <button class="back-button" id="backButton">Kembali</button>
+                <button><a href="ujicoba.html" id="saveButton">Simpan</a></button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const registrationForm = document.getElementById('registrationForm');
+        const confirmationSection = document.getElementById('confirmationSection');
+        const confirmName = document.getElementById('confirmName');
+        const confirmDob = document.getElementById('confirmDob');
+        const confirmGender = document.getElementById('confirmGender');
+        const confirmAddress = document.getElementById('confirmAddress');
+        const confirmPhone = document.getElementById('confirmPhone');
+        const confirmEmail = document.getElementById('confirmEmail');
+
+        registrationForm.addEventListener('submit', function(event) {
+            event.preventDefault(); // Mencegah pengiriman form secara default
+
+            // Mengambil nilai dari form dan menampilkannya di bagian konfirmasi
+            confirmName.textContent = document.getElementById('name').value;
+            confirmDob.textContent = document.getElementById('dob').value;
+            confirmGender.textContent = document.getElementById('gender').value;
+            confirmAddress.textContent = document.getElementById('address').value;
+            confirmPhone.textContent = document.getElementById('phone').value;
+            confirmEmail.textContent = document.getElementById('email').value;
+
+            // Menampilkan bagian konfirmasi
+            confirmationSection.style.display = 'block';
+            registrationForm.style.display = 'none';
+        });
+
+        document.getElementById('backButton').addEventListener('click', function() {
+            // Kembali ke form pendaftaran
+            confirmationSection.style.display = 'none';
+            registrationForm.style.display = 'block';
+        });
+
+        document.getElementById('saveButton').addEventListener('click', function() {
+            // Arahkan ke halaman profil pasien
+            window.location.href = 'profil_pasien.html'; // Ganti dengan URL halaman profil pasien yang sesuai
+        });
+
+        document.getElementById('resetButton').addEventListener('click', function() {
+            // Reset form
+            registrationForm.reset();
+        });
+    </script>
+</body>
+</html>

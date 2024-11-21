@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pemindaian Sidik Jari</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+        }
+        .fingerprint-icon {
+            font-size: 100px;
+            color: #007bff;
+            margin: 20px 0;
+        }
+        .instructions {
+            margin: 20px 0;
+            color: #555;
+        }
+        .scan-button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 18px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .scan-button:hover {
+            background-color: #0056b3;
+        }
+        .status {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #28a745; /* Warna hijau untuk status sukses */
+        }
+        .error {
+            color: #dc3545; /* Warna merah untuk status error */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Pemindaian Sidik Jari</h1>
+        <div><img src="finger.jpeg"></div>
+        <p class="instructions">Silakan letakkan jari Anda pada pemindai untuk memulai pemindaian.</p>
+        <button class="scan-button" id="scanButton">Mulai Pemindaian</button>
+        <div class="status" id="statusMessage"></div>
+        <button><a href="CONTENT_PROFILE WAWAN.html" type="submit">Cek Data</button>
+    </div>
+
+    <script>
+        document.getElementById('scanButton').addEventListener('click', function() {
+            const statusMessage = document.getElementById('statusMessage');
+            statusMessage.textContent = 'Memindai... Silakan tunggu.';
+            statusMessage.classList.remove('error');
+            
+
+            // Simulasi pemindaian sidik jari
+            setTimeout(function() {
+                const success = Math.random() > 0.2; // 80% kemungkinan sukses
+                if (success) {
+                    statusMessage.textContent = 'Pemindaian berhasil! Sidik jari terdeteksi.';
+                } else {
+                    statusMessage.textContent = 'Pemindaian gagal. Silakan coba lagi.';
+                    statusMessage.classList.add('error');
+                }
+            }, 2000); // Simulasi waktu pemindaian 2 detik
+        });
+        document.getElementById('scanButton').addEventListener('click', function() {
+            // Simulasi pemindaian fingerprint
+            // Di sini Anda harus menambahkan logika untuk berinteraksi dengan perangkat fingerprint
+            const fingerprintData = "data-fingerprint"; // Ganti dengan data fingerprint yang sebenarnya
+            document.getElementById('fingerprint').value = fingerprintData;
+            alert("Fingerprint berhasil dipindai!");
+        });
+    </script>
+</body>
+</html>
